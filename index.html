@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAMOX</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: black;
+            text-align: center;
+        }
+        #title {
+            font-size: 36px;
+            margin: 20px 0;
+            color: black;
+        }
+        .box {
+            display: inline-block;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            text-align: left;
+            position: relative;
+        }
+        .telegram {
+            background-color: black;
+        }
+        .instagram {
+            background-color: black;
+        }
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+        }
+        .circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .black-circle {
+            background-color: black;
+        }
+        .white-circle {
+            background-color: white;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="title">RAMOX</div>
+
+    <div class="box telegram" onclick="window.open('https://t.me/Bache_Asil', '_blank')">
+        Telegram
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Telegram_icon.svg" alt="Telegram" style="width:20px; height:20px; position:absolute; right:10px; top:10px;">
+    </div>
+
+    <div class="box instagram" onclick="window.open('https://www.instagram.com/raamoox', '_blank')">
+        Instagram
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width:20px; height:20px; position:absolute; right:10px; top:10px;">
+    </div>
+
+    <div>Made by RAMOX</div>
+
+    <div class="theme-toggle">
+        <div class="circle black-circle" id="toggleBlack" onclick="toggleTheme('black')"></div>
+        <div class="circle white-circle" id="toggleWhite" onclick="toggleTheme('white')" style="display:none;"></div>
+    </div>
+
+    <script>
+        let isBlackTheme = false;
+
+        function toggleTheme(theme) {
+            isBlackTheme = !isBlackTheme;
+            document.body.style.backgroundColor = isBlackTheme ? 'black' : 'white';
+            document.body.style.color = isBlackTheme ? 'white' : 'black';
+            document.querySelectorAll('.box').forEach(box => {
+                box.style.backgroundColor = isBlackTheme ? 'white' : 'black';
+                box.style.color = isBlackTheme ? 'black' : 'white';
+            });
+            document.getElementById('toggleBlack').style.display = isBlackTheme ? 'none' : 'block';
+            document.getElementById('toggleWhite').style.display = isBlackTheme ? 'block' : 'none';
+        }
+    </script>
+
+</body>
+</html>
